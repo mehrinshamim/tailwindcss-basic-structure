@@ -4,12 +4,12 @@ import React from 'react';
 // This component demonstrates the concept of extracting reusable components.
 // Instead of repeating the same button styles across the app, we define a Button component
 // that accepts props like `text`, `color`, and `onClick` to make it flexible and reusable.
-const Button = ({ text, color = 'blue', onClick }) => {
+const Button = ({ text, color = 'bg-blue-500', onClick }) => {
   return (
     <button
       onClick={onClick}
       className={`
-        bg-${color}-500 
+        ${color} 
         text-white  
         font-semibold 
         px-6 py-2 
@@ -47,8 +47,8 @@ const Navbar = () => {
         <h1 className="text-2xl font-bold text-blue-600">TailwindDemo</h1>
         <div className="space-x-4">
           {/* Reusing the Button component with different props */}
-          <Button text="Login" color="blue" />
-          <Button text="Sign Up" color="green" />
+          <Button text="Login" color="bg-blue-500" />
+          <Button text="Sign Up" color="bg-green-500" />
         </div>
       </div>
     </nav>
@@ -71,7 +71,7 @@ const Hero = () => {
         {/* Reusing the Button component with a custom onClick handler */}
         <Button 
           text="Get Started" 
-          color="white" 
+          color="bg-white-500" 
           onClick={() => alert('Welcome to Tailwind CSS!')} 
         />
       </div>
@@ -136,11 +136,6 @@ function App() {
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="mb-4">Built with React and Tailwind CSS</p>
-          <div className="space-x-4">
-            {/* Reusing the Button component with different colors */}
-            <Button text="Documentation" color="blue" />
-            <Button text="GitHub" color="gray" />
-          </div>
         </div>
       </footer>
     </div>
